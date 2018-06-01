@@ -1,38 +1,45 @@
-/** Desafio FizzBuzz
+import chai, { expect } from 'chai';
+import sinon from 'sinon';
+import sinonChai from 'sinon-chai';
+import sinonStubPromise from 'sinon-stub-promise';
+chai.use(sinonChai);
+sinonStubPromise(sinon);
 
-Escreva uma lib que receba um número e:
+global.fetch = require('node-fetch');
 
-Se o número for divisível por 3, no lugar do número escreva 'Fizz' - X
-Se o número for divisível por 5, no lugar do número escreva 'Buzz' - X
+import {
+  search,
+  searchAlbums,
+  searchArtists,
+  searchTracks,
+  searchPlaylists
+} from '../src/main';
 
-Se o número for divisível por 3 e 5, no lugar do número escreva 'FizzBuzz' - X
-Se não for múltiplo de nada, retorna o número
-
-**/
-
-import { expect } from 'chai';
-import FizzBuzz from '../src/main';
-
-describe('Main', () => {
-  it('should return the number when non-multiple', () => {
-    expect(FizzBuzz(8)).to.be.equal(8);
+describe('Spotify Wrapper', () => {
+  describe('smoke tests', () => {
+    it('should exist the search method', () => {
+      expect(search).to.exist;
+    });
+    it('should exist the `searchAlbums` method', () => {
+      expect(searchAlbums).to.exist;
+    });
+    it('should exist the `searchArtists` method', () => {
+      expect(searchArtists).to.exist;
+    });
+    it('should exist the `searchTracks` method', () => {
+      expect(searchTracks).to.exist;
+    });
+    it('should exist the `searchPlaylists` method', () => {
+      expect(searchPlaylists).to.exist;
+    });
   });
 
-  it('should be return `Fizz` when multiple of 3', () => {
-    expect(FizzBuzz(3)).to.be.equal('Fizz');
-    expect(FizzBuzz(6)).to.be.equal('Fizz');
-  });
+  describe('General Search', () => {
+    it('should call fetch function', () => {
+      const fecthedStub = sinon.stub(global, 'fetch');
+      const artists = search();
 
-  it('should be return `Buzz` when multiple of 5', () => {
-    expect(FizzBuzz(5)).to.be.equal('Buzz');
-    expect(FizzBuzz(10)).to.be.equal('Buzz');
-  });
-
-  it('should be return `FizzBuzz` when multiple of 3 and 5', () => {
-    expect(FizzBuzz(15)).to.be.equal('FizzBuzz');
-  });
-
-  it('shoudl be return 0 when 0', () => {
-    expect(FizzBuzz(0)).to.be.equal(0);
+      expect(fecthedStub).to.have.been.calledOnce;
+    });
   });
 });
