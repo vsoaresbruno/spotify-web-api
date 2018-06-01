@@ -1,5 +1,5 @@
 {
-  "name": "Spotify Wrapper - Web API",
+  "name": "spotify-wrapper-web-api",
   "version": "1.0.0",
   "description": "A wrapper to work with the Spotify Web API",
   "main": "index.js",
@@ -50,7 +50,11 @@
     "eslint-plugin-import": "^2.6.1",
     "husky": "^0.11.9",
     "mocha": "^3.5.3",
+    "node-fetch": "^2.1.2",
     "nyc": "^10.3.2",
-    "rimraf": "^2.6.1"
+    "rimraf": "^2.6.1",
+    "sinon": "^5.0.10",
+    "sinon-chai": "^3.1.0",
+    "sinon-stub-promise": "^4.0.0"
   }
 }
