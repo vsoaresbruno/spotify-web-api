@@ -1,0 +1,56 @@
+{
+  "name": "Spotify Wrapper - Web API",
+  "version": "1.0.0",
+  "description": "A wrapper to work with the Spotify Web API",
+  "main": "index.js",
+  "scripts": {
+    "clear": "rimraf lib",
+    "build": "npm run clear && ./node_modules/.bin/babel --out-dir lib src",
+    "build:watch": "npm run build -- --watch",
+    "lint": "./node_modules/.bin/eslint src/*.js",
+    "prepush": "",
+    "test": "./node_modules/.bin/mocha tests/**/*.spec.js --require babel-register",
+    "test:tdd": "./node_modules/.bin/mocha tests/**/*.spec.js --require babel-register --watch",
+    "test:coverage": " nyc npm test"
+  },
+  "nyc": {
+    "functions": 80,
+    "lines": 80,
+    "check-coverage": true,
+    "reporter": [
+      "text",
+      "html"
+    ],
+    "exclude": [
+      "tests/**"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vsoaresbruno/spotify-web-api.git"
+  },
+  "keywords": [
+    "js",
+    "tdd",
+    "library"
+  ],
+  "author": "Bruno Soares",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vsoaresbruno/spotify-web-api/issues"
+  },
+  "homepage": "https://github.com/vsoaresbruno/spotify-web-api#readme",
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-preset-env": "^1.7.0",
+    "babel-register": "^6.26.0",
+    "chai": "^3.5.0",
+    "eslint": "^4.0.0",
+    "eslint-config-airbnb-base": "^11.2.0",
+    "eslint-plugin-import": "^2.6.1",
+    "husky": "^0.11.9",
+    "mocha": "^3.5.3",
+    "nyc": "^10.3.2",
+    "rimraf": "^2.6.1"
+  }
+}
