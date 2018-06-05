@@ -1,22 +1,16 @@
 {
-  "name": "spotify-wrapper-web-api",
+  "name": "spotify-wrapper",
   "version": "1.0.0",
-  "description": "A wrapper to work with the Spotify Web API",
+  "description": "A wrapper to work with the Spotify Web API.",
   "main": "index.js",
   "scripts": {
-    "clear": "rimraf lib",
-    "build": "npm run clear && ./node_modules/.bin/babel --out-dir lib src",
-    "build:watch": "npm run build -- --watch",
     "lint": "./node_modules/.bin/eslint src/*.js",
-    "prepush": "",
+    "prepush": "npm run lint",
     "test": "./node_modules/.bin/mocha tests/**/*.spec.js --require babel-register",
     "test:tdd": "./node_modules/.bin/mocha tests/**/*.spec.js --require babel-register --watch",
-    "test:coverage": " nyc npm test"
+    "test:coverage": "nyc npm test"
   },
   "nyc": {
-    "functions": 80,
-    "lines": 80,
-    "check-coverage": true,
     "reporter": [
       "text",
       "html"
@@ -27,34 +21,34 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vsoaresbruno/spotify-web-api.git"
+    "url": "git+https://github.com/willianjusten/spotify-wrapper.git"
   },
   "keywords": [
     "js",
     "tdd",
     "library"
   ],
-  "author": "Bruno Soares",
+  "author": "Willian Justen <willianjustenqui@gmail.com> (https://willianjusten.com.br/)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/vsoaresbruno/spotify-web-api/issues"
+    "url": "https://github.com/willianjusten/spotify-wrapper/issues"
   },
-  "homepage": "https://github.com/vsoaresbruno/spotify-web-api#readme",
+  "homepage": "https://github.com/willianjusten/spotify-wrapper#readme",
   "devDependencies": {
-    "babel-cli": "^6.24.1",
-    "babel-preset-env": "^1.7.0",
-    "babel-register": "^6.26.0",
+    "babel-preset-env": "^1.3.2",
+    "babel-register": "^6.24.0",
     "chai": "^3.5.0",
-    "eslint": "^4.0.0",
-    "eslint-config-airbnb-base": "^11.2.0",
-    "eslint-plugin-import": "^2.6.1",
+    "eslint": "^3.7.1",
+    "eslint-config-airbnb": "^12.0.0",
+    "eslint-plugin-import": "^2.0.1",
+    "eslint-plugin-jsx-a11y": "^2.2.3",
+    "eslint-plugin-react": "^6.4.1",
     "husky": "^0.11.9",
-    "mocha": "^3.5.3",
-    "node-fetch": "^2.1.2",
-    "nyc": "^10.3.2",
-    "rimraf": "^2.6.1",
-    "sinon": "^5.0.10",
-    "sinon-chai": "^3.1.0",
+    "mocha": "^3.2.0",
+    "node-fetch": "^1.6.3",
+    "nyc": "^10.2.0",
+    "sinon": "^2.1.0",
+    "sinon-chai": "^2.9.0",
     "sinon-stub-promise": "^4.0.0"
   }
 }
