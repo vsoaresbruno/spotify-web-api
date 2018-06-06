@@ -1,5 +1,5 @@
 {
-  "name": "spotify-wrapper",
+  "name": "spotify-web-api",
   "version": "1.0.0",
   "description": "A wrapper to work with the Spotify Web API.",
   "main": "index.js",
@@ -19,21 +19,13 @@
       "tests/**"
     ]
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/willianjusten/spotify-wrapper.git"
-  },
   "keywords": [
     "js",
     "tdd",
     "library"
   ],
-  "author": "Willian Justen <willianjustenqui@gmail.com> (https://willianjusten.com.br/)",
+  "author": "Bruno Soares",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/willianjusten/spotify-wrapper/issues"
-  },
-  "homepage": "https://github.com/willianjusten/spotify-wrapper#readme",
   "devDependencies": {
     "babel-preset-env": "^1.3.2",
     "babel-register": "^6.24.0",
